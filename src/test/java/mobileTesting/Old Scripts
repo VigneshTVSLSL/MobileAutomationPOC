@@ -1,0 +1,10 @@
+{
+  "deviceName": "MiA2",
+  "udid": "4b1b7b2",
+  "platformName": "Android",
+  "platformVersion": "9",
+  "appWaitPackage": "com.android.chrome",
+  "appPackage": "com.android.chrome",
+  "appWaitActivity": "org.chromium.chrome.browser.document.ChromeLauncherActivity",
+  "appActivity": "org.chromium.chrome.browser.document.ChromeLauncherActivity"
+}
