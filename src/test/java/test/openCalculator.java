@@ -4,7 +4,9 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.sql.Driver;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import io.appium.java_client.AppiumDriver;
@@ -13,9 +15,9 @@ import io.appium.java_client.android.AndroidDriver;
 
 public class openCalculator {
 	
-	static AppiumDriver driver;
-	WebDriver driver2;
-	AndroidDriver driver3;
+	//static AppiumDriver driver;
+	static WebDriver driver;
+	//AndroidDriver driver3;
 
 	public static void main(String[] args)  {
 		// TODO Auto-generated method stub;
@@ -46,28 +48,33 @@ public class openCalculator {
 			cap.setCapability("appWaitPackage", "com.google.android.calculator");
 			cap.setCapability("appPackage", "com.google.android.calculator");
 			
-cap.setCapability("appWaitActivity", "com.android.calculator2.Calculator");
-cap.setCapability("appActivity", "com.android.calculator2.Calculator");
+			cap.setCapability("appWaitActivity", "com.android.calculator2.Calculator");
+			cap.setCapability("appActivity", "com.android.calculator2.Calculator");
 			
-			
-			//cap.setCapability("appActivity", "com.google.android.gms.common.api.GoogleApiActivity");
-			
-			
-			
-			//cap.setCapability("appWaitActivity", "com.google.android.gms.common.api.GoogleApiActivity");
-			
-			
-			//cap.setCapability("appActivity", "com.google.android.gms.common.api.GoogleApiActivity");
-			
-			
-			//cap.setCapability("appActivities", "com.android.calculator2.Calculator");
+		
 			
 			URI url = new URI("http://127.0.0.1:4723/wd/hub");
 			driver = new AppiumDriver<MobileElement>(cap);
 			
 			System.out.println("Mobile Calculator Started");
 			
+			MobileElement numberOne = (MobileElement) driver.findElement(By.id("com.google.android.calculator:id/digit_1"));
+			MobileElement plusSymbol = (MobileElement) driver.findElement(By.id("com.google.android.calculator:id/op_add"));
+			MobileElement numberTwo = (MobileElement) driver.findElement(By.id("com.google.android.calculator:id/digit_2"));
+			MobileElement equalsSymbol = (MobileElement) driver.findElement(By.id("com.google.android.calculator:id/eq"));
+			MobileElement result = (MobileElement) driver.findElement(By.id("android.widget.TextView"));
 			
+			numberOne.click();
+			
+			System.out.println("One Clicked");
+			plusSymbol.click();
+			numberTwo.click();
+			equalsSymbol.click();
+			
+			
+			String finalResult = result.getText();
+			
+			System.out.println("Output is" +finalResult);
 			
 	}
 
